@@ -1,0 +1,24 @@
+:root {
+  --convert-card-bg: #ffffff;
+  --secondary-text-color: #44554e;
+  --borders-card: #d5e2da;
+  --borders-champs: #c3d3c9;
+  --bg-champs: #f8fbf9;
+  --main-text-color: #0e1b17;
+  --main-green-color: #0b7a53;
+  --main-bg: #f3f7f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  color: var(--main-text-color)
+}
+
+body {
+  background-color: var(--main-bg);
+  height: 100vh;
+  width: 100vw;
+}
