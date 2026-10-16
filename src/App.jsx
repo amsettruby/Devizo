@@ -5,7 +5,7 @@ import RightSideDiv from "./components/rightSideDiv";
 import "./App.css";
 import { useEffect, useState } from "react";
 
-const apiKey = "17329e23e6b767c55f4a16b4";
+const apiKey = "API_KEY";
 
 function App() {
   const [montantValue, setMontantValue] = useState(1);
