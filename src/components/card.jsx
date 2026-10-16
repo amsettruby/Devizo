@@ -2,7 +2,7 @@ import Input from "./input";
 import Select from "./select";
 import Button from "./button";
 
-function Card({ value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, onArrCurrencyChange, taux, chargement, erreur }) {
+function Card({ value, onChange, depCurrency, arrCurrency, invertCurrency, onDepCurrencyChange, onArrCurrencyChange, taux, chargement, erreur }) {
   let total;
   if (chargement) {
     total = "Chargement..."
@@ -58,6 +58,7 @@ function Card({ value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, 
               borderRadius: "50%",
             }}
             className="invert"
+            onClick={invertCurrency}
           >
             <i className="bi bi-arrow-down-up"></i>
           </button>

@@ -11,8 +11,8 @@ function App() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [rate, setRate] = useState(null);
-  const [arrCurrency, setArrCurrency] = useState("XOF");
-  const [depCurrency, setDepCurrency] = useState("EUR");
+  let [arrCurrency, setArrCurrency] = useState("XOF");
+  let [depCurrency, setDepCurrency] = useState("EUR");
 
   useEffect(() => {
     async function fetchData() {
@@ -41,6 +41,11 @@ function App() {
     fetchData();
   }, [depCurrency, arrCurrency]);
 
+  function invert() {
+    setDepCurrency(arrCurrency);
+    setArrCurrency(depCurrency)
+  }
+
   return (
     <>
       <Header />
@@ -54,6 +59,7 @@ function App() {
         rate={rate}
         error={error}
         loading={loading}
+        invertCurrency={invert}
       />
     </>
   );
@@ -69,6 +75,7 @@ function Main({
   rate,
   loading,
   error,
+  invertCurrency
 }) {
   return (
     <div className="mainDiv">
@@ -83,6 +90,7 @@ function Main({
         rate={rate}
         loading={loading}
         error={error}
+        invertCurrency={invertCurrency}
       />
     </div>
   );

@@ -1,9 +1,9 @@
 import Card from "./card";
 
-function RightSideDiv({value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, onArrCurrencyChange, rate, loading, error}) {
+function RightSideDiv({value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, onArrCurrencyChange, rate, loading, error, invertCurrency}) {
     
     return (
-        <Card value={value} onChange={onChange} depCurrency={depCurrency} arrCurrency={arrCurrency} onDepCurrencyChange={onDepCurrencyChange} onArrCurrencyChange={onArrCurrencyChange} taux={rate} chargement={loading} erreur={error} />
+        <Card value={value} onChange={onChange} depCurrency={depCurrency} arrCurrency={arrCurrency} onDepCurrencyChange={onDepCurrencyChange} onArrCurrencyChange={onArrCurrencyChange} taux={rate} chargement={loading} erreur={error} invertCurrency={invertCurrency} />
     )
 }
 
