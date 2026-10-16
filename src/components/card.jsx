@@ -2,7 +2,16 @@ import Input from "./input";
 import Select from "./select";
 import Button from "./button";
 
-function Card({value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, onArrCurrencyChange, taux, chargement, erreur}) {
+function Card({ value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, onArrCurrencyChange, taux, chargement, erreur }) {
+  let total;
+  if (chargement) {
+    total = "Chargement..."
+  } else if (erreur) {
+    total = "Erreur..."
+  } else {
+    total = (taux * value).toString().padEnd(2, '0')
+  }
+
   return (
     <div className="rightSide">
       <div className="changeCard">
@@ -33,6 +42,7 @@ function Card({value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, o
               id="fromSelect"
               defaultCurrency="EUR - Euro"
               onDepCurrencyChange={onDepCurrencyChange}
+              depCurrency={depCurrency}
             />
           </div>
           <button
@@ -61,7 +71,7 @@ function Card({value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, o
             }}
           >
             <label htmlFor="toSelect">Vers</label>
-            <Select id="toSelect" onArrCurrencyChange={onArrCurrencyChange} />
+            <Select id="toSelect" onArrCurrencyChange={onArrCurrencyChange} arrCurrency={arrCurrency} />
           </div>
         </div>
 
@@ -70,7 +80,7 @@ function Card({value, onChange, depCurrency, arrCurrency, onDepCurrencyChange, o
             {value} {depCurrency} equivaut à
           </p>
           <p style={{ fontWeight: "bold", fontSize: "1.3rem", color: "white" }}>
-            {value * taux} {arrCurrency}
+            {total} {arrCurrency}
           </p>
           <p style={{ color: "#818181" }}>
             1 {depCurrency} = {1 * taux} {arrCurrency}

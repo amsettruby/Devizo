@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+  <title>Logo deux flèches opposées</title>
+  <!-- Flèche du haut : vers la droite, demi-pointe vers le haut -->
+  <polyline points="40,75 160,75 128,43" stroke="#1E3A8A"/>
+  <!-- Flèche du bas : vers la gauche, demi-pointe vers le bas -->
+  <polyline points="160,125 40,125 72,157" stroke="#F97316"/>
+</svg>

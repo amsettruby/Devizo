@@ -1,4 +1,4 @@
-function Select({id, defaultCurrency, onDepCurrencyChange, onArrCurrencyChange}) {
+function Select({id, depCurrency, arrCurrency, onDepCurrencyChange, onArrCurrencyChange}) {
     return (
       <select name="" id={id} className="selectOpt" onChange={(e) => {
         if (id == 'fromSelect') {
@@ -6,7 +6,7 @@ function Select({id, defaultCurrency, onDepCurrencyChange, onArrCurrencyChange})
         } else if (id == 'toSelect') {
           onArrCurrencyChange(e.target.value)
         }
-      } }>
+      } } value={id == 'fromSelect' ? depCurrency : arrCurrency}>
         <option value="">Choisissez une devise</option>
         <option value="EUR">EUR - Euro</option>
         <option value="USD">USD - Dollar americain</option>

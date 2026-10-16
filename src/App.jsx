@@ -1,11 +1,10 @@
 import Header from "./components/header";
 import LeftSideDiv from "./components/leftSideDiv";
 import RightSideDiv from "./components/rightSideDiv";
-
 import "./App.css";
 import { useEffect, useState } from "react";
 
-const apiKey = "API_KEY";
+const apiKey = import.meta.env.VITE_API_KEY;
 
 function App() {
   const [montantValue, setMontantValue] = useState(1);
@@ -29,9 +28,10 @@ function App() {
           } else if (data.result === "error") {
             throw new Error(`Erreur rencontrée : ${data["error-type"]}`);
           }
+        } else {
+          throw new Error(req.status)
         }
       } catch (e) {
-        console.log(e);
         setError(true);
       } finally {
         setLoading(false);
@@ -39,10 +39,8 @@ function App() {
     }
 
     fetchData();
-  }, [montantValue, depCurrency, arrCurrency]);
+  }, [depCurrency, arrCurrency]);
 
-  console.log(depCurrency, "Dep");
-  console.log(arrCurrency, " Arr");
   return (
     <>
       <Header />
